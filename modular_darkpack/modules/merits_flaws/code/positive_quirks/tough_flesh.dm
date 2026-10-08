@@ -8,7 +8,7 @@
 	mob_trait = TRAIT_TOUGH_FLESH
 	icon = FA_ICON_SHIELD
 
-/datum/quirk/darkpack/pain_tolerance/add(client/client_source)
+/datum/quirk/darkpack/tough_flesh/add(client/client_source)
 	var/mob/living/carbon/human/human_holder = astype(quirk_holder)
 		if(!human_holder)
 			return
@@ -16,7 +16,7 @@
 	MODIFY_PHYSIOLOGY(human_holder, STAMINA, 0.8)
 
 
-/datum/quirk/darkpack/pain_tolerance/remove(client/client_source)
+/datum/quirk/darkpack/tough_flesh/remove(client/client_source)
 	var/mob/living/carbon/human/human_holder = astype(quirk_holder)
 		if(!human_holder)
 			return
