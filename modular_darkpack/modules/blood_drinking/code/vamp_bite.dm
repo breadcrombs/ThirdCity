@@ -76,6 +76,21 @@
 					SEND_SOUND(src, sound('modular_darkpack/modules/blood_drinking/sounds/need_blood.ogg', volume = 75))
 					return
 
+			// Thick-skinned merit
+			if(HAS_TRAIT(bit_living, TRAIT_THICK_SKINNED) && (!IS_DEAD_OR_FAKING(bit_living) || !IS_UNCONSCIOUS_OR_CRIT(bit_living)))
+				var/datum/quirk/darkpack/thick_skinned/thick = bit_living.get_quirk(/datum/quirk/darkpack/thick_skinned)
+				if(thick)
+					if(!thick.thick_skinned_roll)
+						thick.thick_skinned_roll = new()
+					thick.thick_skinned_roll.difficulty = bit_living.st_get_stat(STAT_STAMINA)
+					var/result = thick.thick_skinned_roll.st_roll(src, bit_living)
+					if(result != ROLL_SUCCESS)
+						to_chat(src, span_warning("Your teeth fail to pierce [bit_living]'s skin!"))
+						to_chat(bit_living, span_warning("[src]'s teeth fail to pierce your skin!"))
+						SEND_SOUND(src, sound('modular_darkpack/modules/blood_drinking/sounds/need_blood.ogg', volume = 75))
+						setGrabState(GRAB_PASSIVE)
+						return
+
 			if(get_kindred_splat(src))
 				bit_living.emote("groan")
 			else if(get_ghoul_splat(src))
