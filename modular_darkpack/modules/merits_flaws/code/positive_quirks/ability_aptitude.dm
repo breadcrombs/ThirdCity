@@ -10,7 +10,7 @@
 
 /datum/quirk/darkpack/fleshcrafting_aptitude
 	name = "Fleshcrafting Aptitude"
-	desc = "You have a increased aptitude with Vicissitude, Bonecrafting has its difficulty reduced by two and vivisecting a corpse yields extra flesh for each success."
+	desc = "You have a increased aptitude with Vicissitude, Bonecrafting has its difficulty reduced by two and yields extra flesh."
 	value = -1
 	mob_trait = TRAIT_FLESHCRAFTING_APTITUDE
 	icon = FA_ICON_HAMMER
