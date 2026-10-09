@@ -12,12 +12,12 @@
 	var/mob/living/carbon/human/human_holder = astype(quirk_holder)
 	if(!human_holder)
 		return
-	MODIFY_PHYSIOLOGY(human_holder, PHYS_COEFF_STUN, 0.5)
+	MODIFY_PHYSIOLOGY(human_holder, PHYS_COEFF_STUN, 0.6)
 	MODIFY_PHYSIOLOGY(human_holder, STAMINA, 0.8)
 
 /datum/quirk/darkpack/tough_flesh/remove(client/client_source)
 	var/mob/living/carbon/human/human_holder = astype(quirk_holder)
 	if(!human_holder)
 		return
-	MODIFY_PHYSIOLOGY(human_holder, PHYS_COEFF_STUN, 2)
+	MODIFY_PHYSIOLOGY(human_holder, PHYS_COEFF_STUN, 1 / 0.6)
 	MODIFY_PHYSIOLOGY(human_holder, STAMINA, 1.25)
