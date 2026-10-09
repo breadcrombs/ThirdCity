@@ -48,7 +48,10 @@
 /datum/discipline_power/thaumaturgy/activate(atom/target)
 	. = ..()
 	//Thaumaturgy powers have different effects based off the amount of successes. I dont want to copy paste the code, so this is being put here.
-	success_count = SSroll.storyteller_roll_datum(owner, target, /datum/storyteller_roll/thaumaturgy, difficulty = (level + 3))
+	var/thaum_difficulty = level + 3
+	if(HAS_TRAIT(owner, TRAIT_THAUMATURGY_APTITUDE))
+		thaum_difficulty -= 2
+	success_count = SSroll.storyteller_roll_datum(owner, target, /datum/storyteller_roll/thaumaturgy, difficulty = thaum_difficulty)
 	if(success_count < 0)
 		thaumaturgy_botch_effect()
 		return TRUE

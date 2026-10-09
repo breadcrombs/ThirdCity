@@ -108,6 +108,10 @@
 	applicable_stats = list(STAT_STRENGTH, STAT_MEDICINE)
 	numerical = TRUE
 
+/datum/storyteller_roll/bonecrafting/using_difficulty(mob/living/roller)
+	. = ..()
+	if(HAS_TRAIT(roller, TRAIT_FLESHCRAFTING_APTITUDE))
+		. -= 2
 
 /datum/discipline_power/vicissitude/bonecrafting
 	name = "Bonecrafting"
@@ -156,6 +160,8 @@
 		head?.drop_organs()
 		chest?.drop_organs()
 		new /obj/item/stack/sheet/meat/twenty(target.loc)
+		if(HAS_TRAIT(owner, TRAIT_FLESHCRAFTING_APTITUDE))
+			new /obj/item/stack/sheet/meat/five(target.loc)
 		new /obj/item/guts(target.loc)
 		new /obj/item/spine(target.loc)
 		target.gib(DROP_ALL_REMAINS)

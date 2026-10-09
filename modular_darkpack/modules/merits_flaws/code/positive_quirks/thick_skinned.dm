@@ -9,21 +9,6 @@
 	icon = FA_ICON_PERSON_SHELTER
 	var/datum/storyteller_roll/thick_skinned/thick_skinned_roll
 
-/datum/quirk/darkpack/thick_skinned/add(client/client_source)
-	var/mob/living/carbon/human/human_holder = astype(quirk_holder)
-	if(!human_holder)
-		return
-	human_holder.physiology.armor = human_holder.physiology.armor.add_other_armor(/datum/armor/thick_skin)
-
-/datum/quirk/darkpack/thick_skinned/remove()
-	var/mob/living/carbon/human/human_holder = astype(quirk_holder)
-	if(!human_holder)
-		return
-	human_holder.physiology.armor = human_holder.physiology.armor.subtract_other_armor(/datum/armor/thick_skin)
-
-/datum/armor/thick_skin
-	wound = 10
-
 /datum/storyteller_roll/thick_skinned
 	bumper_text = "Piercing Thick-Skin"
 	applicable_stats = list(STAT_STRENGTH)
