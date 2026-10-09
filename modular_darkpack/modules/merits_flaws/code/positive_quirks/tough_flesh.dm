@@ -1,7 +1,7 @@
 /datum/quirk/darkpack/tough_flesh
 	name = "Tough Flesh"
 	desc = {"You flesh is incredibly tough and is more resistant to forces or trauma that would knock you down.
-		You take half damage from car crashes as well as having increased resistance to stuns.
+		You take half the damage from car crashes as well as having increased resistance to stuns.
 		This merit does not provide physical damage resistance."}
 	ttrpg_sources = list(/datum/source_book/homebrew)
 	value = 3
