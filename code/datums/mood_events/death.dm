@@ -153,6 +153,10 @@
 		return TRUE
 	if(HAS_PERSONALITY(who, /datum/personality/animal_disliker) && is_pet(dead_mob))
 		return TRUE
+	// CRIMSON EDIT ADDITION START - Evil vamps don't gaf about death
+	if(who.is_enlightenment())
+		return TRUE
+	// CRIMSON EDIT ADDITION END - Evil vamps don't gaf about death
 	return FALSE
 
 /datum/mood_event/conditional/see_death/dontcare/update_effect(mob/dead_mob, dusted, gibbed)
